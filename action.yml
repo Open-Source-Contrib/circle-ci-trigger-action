@@ -1,0 +1,23 @@
+# action.yml
+name: 'Run Circle-CI on Label'
+description: 'Runs a Circle-CI Build upon adding a new label to PR'
+inputs:
+  circle_ci_token:  # secret token for circle CI Rest API
+    description: 'Token for Circle-CI'
+    required: true
+    default: ''
+  circle_ci_job:
+    description: 'Name of the circle-ci-job'
+    required: true
+    default: ''
+  circle_ci_project_url:
+    description: 'URL for circle-ci project'
+    required: true
+    default: ''
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.circle_ci_token }}
+    - ${{ inputs.circle_ci_job }}
+    - ${{ inputs.circle_ci_project_url }}
