@@ -54,7 +54,7 @@ jobs:
         circle_ci_token: ${{ secrets.CIRCLE_CI_TOKEN }}
         circle_ci_job: ${{ secrets.CIRCLE_CI_RELEASE_JOB }}
         circle_ci_project_url: ${{ github.ref }}
-    # Use the output from the `webhook` step
+    # Use the output from the `curl-circle-ci` step
     - name: Get the output response
       run: echo "The response was ${{ steps.curl-circle-ci.outputs.response }}"
 ```
